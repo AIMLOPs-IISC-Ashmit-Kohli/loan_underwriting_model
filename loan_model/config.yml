@@ -1,0 +1,89 @@
+# Package Overview
+package_name: loan_model
+
+# Data Files
+training_data_file: loan_dataset.csv
+test_data_file: test_dataset.csv
+
+# Variables
+# The variable we are attempting to predict (Loan Approved or not)
+target: Loan_Status
+
+#pipeline_name: loan_model
+pipeline_save_file: loan__model_output_v
+
+features:      # final features to be use
+  - Gender
+  - Loan_ID
+  - Married
+  - Dependents 
+  - Education 
+  - Self_Employed
+  - ApplicantIncome  
+  - CoapplicantIncome   
+  - LoanAmount
+  - Loan_Amount_Term
+  - Credit_History
+  - Property_Area
+      
+
+unused_fields:  # Features to drop in pipeline
+  - Loan_ID
+  
+# Features inside processing pipeline
+
+gender_var: Gender  # first imputatation , then --> Mappeing
+
+
+married_var: Married
+
+dependents_var: Dependents
+
+credit_history_var: Credit_History
+
+self_employed_var: Self_Employed
+
+loanamount_var: LoanAmount
+
+loan_amount_term_var: Loan_Amount_Term
+
+coapplicant_income_var: CoapplicantIncome
+
+applicantincome_var: ApplicantIncome
+
+education_var: Education
+
+property_area_var: Property_Area
+
+education_mappings:
+  Not Graduate: 0
+  Graduate: 1
+
+gender_mappings:
+  female: 1
+  male: 0
+
+married_mappings:
+  Yes: 1
+  No: 0
+
+self_employed_mappings:
+  Yes: 1
+  No: 0
+
+# set train/test split
+test_size: 0.20
+
+# to set the random seed
+random_state: 42
+# alogrithm parameters
+n_estimators: 500
+max_depth: 10
+min_samples_split: 2
+min_samples_leaf: 2
+max_features: sqrt
+bootstrap: TRUE
+
+
+
+
