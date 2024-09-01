@@ -9,7 +9,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ec2_loan_underwriting
+    runs-on: self-hosted
 
     steps:
       - name: Pull Docker Image
