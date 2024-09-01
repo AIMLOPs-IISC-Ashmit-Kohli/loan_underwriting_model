@@ -18,9 +18,9 @@ jobs:
         run: sudo docker pull $DOCKER_USER/loan-model-fastapi:latest
     
       - name: Delete Old Docker Container
-        run: sudo docker rm -f loan-model-fastapi-container || true
+        run: sudo docker rm -f loan-model-fastapi-containr || true
     
       - name: Run Docker Container
         env: 
           DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
-        run: sudo docker run -it -d -p 8001:8001 --name loan-model-fastapi-container $DOCKER_USER/loan-model-fastapi:latest
+        run: sudo docker run -it -d -p 8001:8001 --name loan-model-fastapi-containr $DOCKER_USER/loan-model-fastapi:latest
